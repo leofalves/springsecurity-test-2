@@ -8,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.alveslf.springsecuritytest2.dtos.UserDtoReq;
 import br.com.alveslf.springsecuritytest2.models.enums.RoleEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,14 +40,13 @@ public class User implements UserDetails {
 		this.password = password;
 		this.role = role;
 	}
-	
-	public User(UserDtoReq userDto) {
-		this.name = userDto.name();
-		this.username = userDto.username();
-		this.password = userDto.password();
+		
+	public User(String name, String username, String passwordHash) {
+		this.name = name;
+		this.username = username;
+		this.password = passwordHash;
 		this.role = RoleEnum.ADMIN;
 	}
-	
 
 	public Long getId() {
 		return id;
