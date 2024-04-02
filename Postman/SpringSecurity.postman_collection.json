@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "cacd05be-28f5-4e51-ad77-09b9fee00b20",
+		"name": "SpringSecurity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "896183"
+	},
+	"item": [
+		{
+			"name": "SpringSecurity Test 2 - CreateUser ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Leo Fabiano\",\r\n    \"username\": \"leo.fabiano\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SpringSecurit Test 2 - auth ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"leo.fabiano\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/auth",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SpringSecurity Test 2 - getOk ADMIN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzcHJpbmdzZWN1cml0eS10ZXN0LTIiLCJzdWIiOiJsZW8uYWx2ZXMiLCJleHAiOjE3MTIxMDAzODl9.J4PhSbph1SxUyDOU0E33yIv2-6ZdWeRrY32cpbXrckQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/admin",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SpringSecurity Test 2 - CreateUser USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Leo Alves\",\r\n    \"username\": \"leo.alves\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SpringSecurit Test 2 - auth USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"leo.alves\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/auth",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SpringSecurity Test 2 - getOk USER",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzcHJpbmdzZWN1cml0eS10ZXN0LTIiLCJzdWIiOiJsZW8uYWx2ZXMiLCJleHAiOjE3MTIxMDAzODl9.J4PhSbph1SxUyDOU0E33yIv2-6ZdWeRrY32cpbXrckQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/users/user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
