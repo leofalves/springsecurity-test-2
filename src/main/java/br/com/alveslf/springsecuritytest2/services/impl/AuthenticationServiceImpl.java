@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 
 import br.com.alveslf.springsecuritytest2.dtos.AuthDto;
 import br.com.alveslf.springsecuritytest2.models.User;
@@ -51,6 +52,20 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 	private Instant getExpiryDate() {
 		return LocalDateTime.now().plusHours(8).toInstant(ZoneOffset.of("-03:00"));
+	}
+	
+	public String checkToken(String token) {
+		try {			
+			Algorithm algorithm = Algorithm.HMAC256("my_fucking_secret");
+			return JWT.require(algorithm)
+					.withIssuer("springsecurity-test-2")
+					.build()
+					.verify(token)
+					.getSubject();
+			
+		} catch (JWTVerificationException e) {
+			return "";
+		}				
 	}
 
 }

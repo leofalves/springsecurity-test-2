@@ -29,8 +29,9 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		var passwordHash = passwordEncoder.encode(userDto.password());
-		User newUser = new User(userDto.name(), userDto.username(), passwordHash);
+		User newUser = new User(userDto.name(), userDto.username(), passwordHash, userDto.role());
 		repository.save(newUser);
-		return new UserDtoRes(newUser.getId(), newUser.getName(), newUser.getUsername(), newUser.getPassword());
+		
+		return new UserDtoRes(newUser.getId(), newUser.getName(), newUser.getUsername(), newUser.getPassword(), newUser.getRole());
 	}
 }

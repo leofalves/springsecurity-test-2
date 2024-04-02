@@ -23,8 +23,13 @@ public class UserController {
 		return service.save(data);
 	}
 	
-	@GetMapping
-	public String getOk() {
-		return "OK";
+	@GetMapping("/admin")
+	public String checkAdminRole() {
+		return "Admin Role Granted";
 	}
+	
+	@GetMapping("/user")
+	public String checkUserRole() {
+		return "User Role Granted";
+	}	
 }

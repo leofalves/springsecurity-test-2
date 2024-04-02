@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.com.alveslf.springsecuritytest2.models.enums.RoleEnum;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +26,16 @@ public class User implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String name;
+	
+	@Column(nullable = false)
 	private String username;
+	
+	@Column(nullable = false)
 	private String password;
+	
+	@Column(nullable = false)
 	private RoleEnum role;
 
 	public User() {
@@ -41,11 +49,11 @@ public class User implements UserDetails {
 		this.role = role;
 	}
 		
-	public User(String name, String username, String passwordHash) {
+	public User(String name, String username, String passwordHash, RoleEnum role) {
 		this.name = name;
 		this.username = username;
 		this.password = passwordHash;
-		this.role = RoleEnum.ADMIN;
+		this.role = role;
 	}
 
 	public Long getId() {
